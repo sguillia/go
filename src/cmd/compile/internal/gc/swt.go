@@ -74,7 +74,7 @@ func typecheckswitch(n *Node) {
 			// We don't actually declare the type switch's guarded
 			// declaration itself. So if there are no cases, we
 			// won't notice that it went unused.
-			yyerrorl(v.Pos, "%v declared and not used", v.Sym)
+			// yyerrorl(v.Pos, "%v declared and not used", v.Sym)
 		}
 	} else {
 		// expression switch

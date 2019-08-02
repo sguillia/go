@@ -65,7 +65,8 @@ func (check *Checker) usage(scope *Scope) {
 		return unused[i].pos < unused[j].pos
 	})
 	for _, v := range unused {
-		check.softErrorf(v.pos, "%s declared but not used", v.name)
+		_ = v
+		// check.softErrorf(v.pos, "%s declared but not used", v.name)
 	}
 
 	for _, scope := range scope.children {
@@ -660,7 +661,7 @@ func (check *Checker) stmt(ctxt stmtContext, s ast.Stmt) {
 				v.used = true // avoid usage error when checking entire function
 			}
 			if !used {
-				check.softErrorf(lhs.Pos(), "%s declared but not used", lhs.Name)
+				// check.softErrorf(lhs.Pos(), "%s declared but not used", lhs.Name)
 			}
 		}
 
