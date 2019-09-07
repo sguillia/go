@@ -50,9 +50,11 @@ func walk(fn *Node) {
 				continue
 			}
 			// yyerrorl(defn.Left.Pos, "%v declared and not used", ln.Sym)
+			fmt.Printf("[patch2] [at char %d] %s declared but not used", defn.Left.Pos, ln.Sym)
 			defn.Left.Name.SetUsed(true) // suppress repeats
 		} else {
 			// yyerrorl(ln.Pos, "%v declared and not used", ln.Sym)
+			fmt.Printf("[info] %s declared but not used", ln.Sym.Name)
 		}
 	}
 

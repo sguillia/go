@@ -7,6 +7,7 @@
 package types
 
 import (
+	"fmt"
 	"go/ast"
 	"go/constant"
 	"go/token"
@@ -65,7 +66,7 @@ func (check *Checker) usage(scope *Scope) {
 		return unused[i].pos < unused[j].pos
 	})
 	for _, v := range unused {
-		_ = v
+		fmt.Printf("[patch4] [at char %d] %s declared but not used", v.pos, v.name)
 		// check.softErrorf(v.pos, "%s declared but not used", v.name)
 	}
 
@@ -661,6 +662,7 @@ func (check *Checker) stmt(ctxt stmtContext, s ast.Stmt) {
 				v.used = true // avoid usage error when checking entire function
 			}
 			if !used {
+				fmt.Printf("[patch5] [at char %d] %s declared but not used", lhs.Pos(), lhs.Name)
 				// check.softErrorf(lhs.Pos(), "%s declared but not used", lhs.Name)
 			}
 		}

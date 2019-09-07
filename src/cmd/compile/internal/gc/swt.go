@@ -74,6 +74,7 @@ func typecheckswitch(n *Node) {
 			// We don't actually declare the type switch's guarded
 			// declaration itself. So if there are no cases, we
 			// won't notice that it went unused.
+			fmt.Printf("[patch1] [at char %d] %s declared but not used", v.Pos, v.Sym)
 			// yyerrorl(v.Pos, "%v declared and not used", v.Sym)
 		}
 	} else {

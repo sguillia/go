@@ -2,6 +2,11 @@
 
 Go to `src` then `./make.bash` and you are ready to go
 
+If not work, run:
+```
+GOROOT_BOOTSTRAP=$PATH_TO_VALID_GO_ROOT ./make.bash
+```
+
 # The Go Programming Language
 
 Go is an open source programming language that makes it easy to build simple,
